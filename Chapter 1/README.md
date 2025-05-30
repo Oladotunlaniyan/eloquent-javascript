@@ -168,4 +168,109 @@ console.log(-(10 - 2)) // → -8
 
 ## Boolean Values
 
-(To be continued...)
+JavaScript has two **Boolean** values:
+
+```js
+true
+false
+```
+
+They're used in **logical operations** and **comparisons**.
+
+### Comparison Operators
+
+```js
+console.log(3 > 2); // → true
+console.log(3 < 2); // → false
+console.log("Aardvark" < "Zoroaster"); // → true
+```
+
+String comparison is based on **Unicode order**, not dictionary order.
+
+### Equality
+
+```js
+console.log("Itchy" != "Scratchy"); // → true
+console.log("Apple" == "Orange"); // → false
+```
+
+**Note**: JavaScript tries type conversion when comparing different types.
+
+For strict comparison (no type conversion), use:
+
+```js
+=== // strict equality
+!== // strict inequality
+```
+
+```js
+console.log(false == 0); // → true
+console.log(false === 0); // → false
+```
+
+### Logical Operators
+
+JavaScript supports:
+
+- **AND**: `&&`
+- **OR**: `||`
+- **NOT**: `!`
+
+Examples:
+
+```js
+console.log(true && false); // → false
+console.log(true || false); // → true
+console.log(!true); // → false
+```
+
+These work like Boolean algebra and **short-circuit**:
+
+- `false && anything` → `false`
+- `true || anything` → `true`
+
+## Empty Values
+
+JavaScript has two special empty values:
+
+- `null` – intentional absence
+- `undefined` – value not yet assigned
+
+```js
+console.log(null == undefined); // → true
+console.log(null === undefined); // → false
+```
+
+## Automatic Type Conversion
+
+JavaScript converts values between types when needed:
+
+```js
+console.log(8 * null); // → 0
+console.log("5" - 1); // → 4
+console.log("5" + 1); // → "51"
+console.log("five" * 2); // → NaN
+console.log(false == 0); // → true
+```
+
+**Caution**: Type coercion can lead to **unintended results**.
+Use **strict equality** (`===`) to avoid this.
+
+## Short-Circuiting of Logical Operators
+
+Logical operators don't always return Boolean values:
+
+```js
+console.log(null || "user"); // → "user"
+console.log("Agnes" || "user"); // → "Agnes"
+```
+
+```js
+console.log("Karl" && "Jung"); // → "Jung"
+```
+
+These are often used to provide **default values**:
+
+```js
+let name = userInput || "default";
+```
